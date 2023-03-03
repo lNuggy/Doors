@@ -2,8 +2,7 @@ local library = {}
 local libalive = true
 local holdingmouse = false
 
--- 17,856 pastebin views
--- as of 1/29/2023 @ 6:30 CST
+-- https://create.roblox.com/marketplace/fonts?creatorName=&includeOnlyVerifiedCreators=false&keyword
 
 local plr = game:GetService("Players").LocalPlayer
 local mouse = plr:GetMouse()
@@ -14,11 +13,11 @@ local windowsopened = 0
 
 local elementsize = 24
 
-local font = Font.new("rbxassetid://12187365364", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+local font = Font.new("rbxassetid://12187360881", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 
-local titlefont = Font.new("rbxassetid://12187365364", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+local titlefont = Font.new("rbxassetid://12187360881", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
 
-local medfont = Font.new("rbxassetid://12187365364", Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+local medfont = Font.new("rbxassetid://12187360881", Enum.FontWeight.Medium, Enum.FontStyle.Normal)
 
 us.InputBegan:Connect(function(key, pro)
     if key.UserInputType == Enum.UserInputType.MouseButton1 then
