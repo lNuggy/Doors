@@ -733,7 +733,9 @@ window_misc.toggle("notify entities", false, function(val)
                 until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
 
                 if v:IsDescendantOf(workspace) then
-                    message(v.Name:gsub("Moving", ""):lower() .. " is coming go hide")
+                    local name = v.Name:gsub("Moving", ""):lower()
+                    local capitalized_name = string.upper(string.sub(name, 1, 1)) .. string.sub(name, 2)
+                    message(capitalized_name .. " is coming, go hide!")
                 end
             end
         end)
