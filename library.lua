@@ -15,19 +15,19 @@ local windowsopened = 0
 local elementsize = 24
 
 local font = Font.new(
-    "rbxassetid://11702779517",
+    "rbxassetid://12187365364",
     Enum.FontWeight.Regular,
     Enum.FontStyle.Normal 
     )
     
 local titlefont = Font.new(
-    "rbxassetid://11702779517",
+    "rbxassetid://12187365364",
     Enum.FontWeight.Bold,
     Enum.FontStyle.Normal 
     )
     
 local medfont = Font.new(
-    "rbxassetid://11702779517",
+    "rbxassetid://12187365364",
     Enum.FontWeight.Medium,
     Enum.FontStyle.Normal 
     )
