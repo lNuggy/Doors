@@ -3,7 +3,7 @@ local plr = game.Players.LocalPlayer
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoid")
 
-local rainbowColor = Color3.fromHSV(tick() % 5 / 5, 1, 1):ToColor3()
+-- local rainbowColor = Color3.fromHSV(tick() % 5 / 5, 1, 1):ToColor3()
 
 
 if not fireproximityprompt then
@@ -221,8 +221,8 @@ window_esp.toggle("door esp", false, function(val)
             local door = room:WaitForChild("Door"):WaitForChild("Door")
 
             task.wait(0.1)
-            -- local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
-	    local h = esp(part, rainbowColor, door, "Door")
+            local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
+	    -- local h = esp(part, rainbowColor, door, "Door")
             table.insert(esptable.doors, h)
 
             door:WaitForChild("Open").Played:Connect(function()
