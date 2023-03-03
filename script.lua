@@ -3,6 +3,9 @@ local plr = game.Players.LocalPlayer
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoid")
 
+local rainbowColor = Color3.fromHSV(tick() % 5 / 5, 1, 1):ToColor3()
+
+
 if not fireproximityprompt then
     local msg = Instance.new("Message", workspace)
     msg.Text = "you have fireproximityprompt function bro get better executor"
@@ -218,7 +221,8 @@ window_esp.toggle("door esp", false, function(val)
             local door = room:WaitForChild("Door"):WaitForChild("Door")
 
             task.wait(0.1)
-            local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
+            -- local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
+	    local h = esp(part, rainbowColor, door, "Door")
             table.insert(esptable.doors, h)
 
             door:WaitForChild("Open").Played:Connect(function()
@@ -370,65 +374,6 @@ window_esp.toggle("item esp", false, function(val)
     end
 end)
 
-window_misc.toggle("loot book", false, function(val)
-    flags.drawbookaura = val
-
-    if val then
-        local function setup(room)
-            local function check(v)
-                if v:IsA("Model") then
-                    if v.Name == "LiveHintBook" then
-                        local prompt = v:WaitForChild("LootPrompt")
-                        local interactions = prompt:GetAttribute("Interactions")
-
-                        if not interactions then
-                            task.spawn(function()
-                                repeat
-                                    task.wait(0.1)
-                                    if plr:DistanceFromCharacter(v.PrimaryPart.Position) <= 12 then
-                                        fireproximityprompt(prompt)
-                                    end
-                                until prompt:GetAttribute("Interactions") or not flags.drawbookaura
-                            end)
-                        end
-                    end
-                end
-            end
-
-            local subaddcon
-            subaddcon = room.DescendantAdded:Connect(function(v)
-                check(v)
-            end)
-
-            for i, v in pairs(room:GetDescendants()) do
-                check(v)
-            end
-
-            task.spawn(function()
-                repeat
-                    task.wait()
-                until not flags.drawbookaura
-                subaddcon:Disconnect()
-            end)
-        end
-
-        local addconnect
-        addconnect = workspace.CurrentRooms.ChildAdded:Connect(function(room)
-            setup(room)
-        end)
-
-        for i, room in pairs(workspace.CurrentRooms:GetChildren()) do
-            if room:FindFirstChild("Assets") then
-                setup(room)
-            end
-        end
-
-        repeat
-            task.wait()
-        until not flags.drawbookaura
-        addconnect:Disconnect()
-    end
-end)
 
 window_esp.toggle("book/breaker esp", false, function(val)
     flags.espbooks = val
@@ -483,7 +428,7 @@ end)
 
 local entitynames = {"RushMoving", "AmbushMoving", "Snare", "A60", "A120"}
 
-window_player.label("credits: osama bin laden", 20)
+window_player.label("Made By Nuggy <3", 20)
 window_esp.toggle("entity esp", false, function(val)
     flags.esprush = val
 
