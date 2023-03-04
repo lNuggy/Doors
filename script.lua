@@ -5,7 +5,6 @@ local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoi
 
 -- local rainbowColor = Color3.fromHSV(tick() % 5 / 5, 1, 1):ToColor3()
 
-
 if not fireproximityprompt then
     local msg = Instance.new("Message", workspace)
     msg.Text = "you have fireproximityprompt function bro get better executor"
@@ -222,7 +221,7 @@ window_esp.toggle("door esp", false, function(val)
 
             task.wait(0.1)
             local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
-	    -- local h = esp(part, rainbowColor, door, "Door")
+            -- local h = esp(part, rainbowColor, door, "Door")
             table.insert(esptable.doors, h)
 
             door:WaitForChild("Open").Played:Connect(function()
@@ -373,7 +372,6 @@ window_esp.toggle("item esp", false, function(val)
         end
     end
 end)
-
 
 window_esp.toggle("book/breaker esp", false, function(val)
     flags.espbooks = val
@@ -1047,8 +1045,7 @@ window_misc.toggle("loot aura", false, function(val)
     end
 end)
 
-window_misc.label(
-    "Bypass Anticheat makes you not pickup anything nor hide. Use only in The Rooms!", 32)
+window_misc.label("Bypass Anticheat makes you not pickup anything nor hide. Use only in The Rooms!", 32)
 
 window_misc.button("bypass anticheat", function()
     local newhum = hum:Clone()
