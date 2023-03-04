@@ -1142,8 +1142,6 @@ window_misc.button("close gui", function()
 
     task.wait()
     library.delete()
-
-    window_player.label("Cannot be reopened", 20)
 end)
 
 window_player.label("Made By Nuggy <3", 20)
