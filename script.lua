@@ -3,6 +3,9 @@ local plr = game.Players.LocalPlayer
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoid")
 
+-- local rainbowColor = Color3.fromHSV(tick() % 5 / 5, 1, 1):ToColor3()
+
+
 if not fireproximityprompt then
     local msg = Instance.new("Message", workspace)
     msg.Text = "you have fireproximityprompt function bro get better executor"
@@ -144,7 +147,8 @@ local flags = {
     getcode = false,
     roomsnolock = false,
     draweraura = false,
-    autorooms = false
+    autorooms = false,
+    drawbookaura = false
 }
 
 local DELFLAGS = {table.unpack(flags)}
@@ -218,6 +222,7 @@ window_esp.toggle("door esp", false, function(val)
 
             task.wait(0.1)
             local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
+	    -- local h = esp(part, rainbowColor, door, "Door")
             table.insert(esptable.doors, h)
 
             door:WaitForChild("Open").Played:Connect(function()
@@ -369,6 +374,7 @@ window_esp.toggle("item esp", false, function(val)
     end
 end)
 
+
 window_esp.toggle("book/breaker esp", false, function(val)
     flags.espbooks = val
 
@@ -422,7 +428,7 @@ end)
 
 local entitynames = {"RushMoving", "AmbushMoving", "Snare", "A60", "A120"}
 
-window_player.label("credits: osama bin laden", 20)
+window_player.label("Made By Nuggy <3", 20)
 window_esp.toggle("entity esp", false, function(val)
     flags.esprush = val
 
