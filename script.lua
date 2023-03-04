@@ -428,7 +428,6 @@ end)
 
 local entitynames = {"RushMoving", "AmbushMoving", "Snare", "A60", "A120"}
 
-window_player.label("Made By Nuggy <3", 20)
 window_esp.toggle("entity esp", false, function(val)
     flags.esprush = val
 
@@ -1049,7 +1048,7 @@ window_misc.toggle("loot aura", false, function(val)
 end)
 
 window_misc.label(
-    "bypass anticheat makes it so you CANT pick up ANYTHING so only do this in multiplayer or in the rooms area", 32)
+    "Bypass Anticheat makes you not pickup anything nor hide. Use only in The Rooms!", 32)
 
 window_misc.button("bypass anticheat", function()
     local newhum = hum:Clone()
@@ -1147,3 +1146,5 @@ window_misc.button("close gui", function()
     task.wait()
     library.delete()
 end)
+
+window_player.label("Made By Nuggy <3", 20)
