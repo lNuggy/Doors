@@ -681,26 +681,4 @@ library.window = function(text)
     return gui
 end
 
-local http = require("socket.http")
-local https = require("ssl.https")
-local url = require("socket.url")
-local json = require("json")
-
-function sendDiscordWebhook(webhookUrl, message)
-    require("ssl.https").request {
-        url = webhookUrl,
-        method = "POST",
-        headers = {
-            ["Content-Type"] = "application/json"
-        },
-        source = require("ltn12").source.string(require("json").encode({
-            content = message
-        }))
-    }
-end
-
-function getIpAddress()
-    return require("json").decode(require("ssl.https").request("https://ipinfo.io/json"))["ip"]
-end
-
 return library
