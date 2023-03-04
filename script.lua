@@ -3,7 +3,7 @@ local plr = game.Players.LocalPlayer
 local char = plr.Character or plr.CharacterAdded:Wait()
 local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoid")
 
--- local rainbowColor = Color3.fromHSV(tick() % 5 / 5, 1, 1):ToColor3()
+-- https://create.roblox.com/marketplace/fonts?creatorName=&includeOnlyVerifiedCreators=false&keyword
 
 if not fireproximityprompt then
     local msg = Instance.new("Message", workspace)
