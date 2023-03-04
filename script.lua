@@ -197,7 +197,7 @@ window_player.toggle("instant use", false, function(val)
     holdconnect:Disconnect()
 end)
 
-local walkspeedslider = window_player.slider("walkspeed", 16, 25, 1, 16, function(val)
+local walkspeedslider = window_player.slider("walkspeed", 10, 25, 1, 16, function(val)
     hum.WalkSpeed = val
     flags.speed = val
 end)
