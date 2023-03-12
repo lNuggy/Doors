@@ -113,7 +113,9 @@ function esp(what, color, core, name)
 end
 
 local entityinfo = game.ReplicatedStorage:WaitForChild("EntityInfo")
+
 function message(text)
+    text = string.upper(string.sub(text, 1, 1)) .. string.sub(text, 2) -- Capitalize the first letter
     local msg = Instance.new("Message", workspace)
     msg.Text = tostring(text)
     task.wait(5)
@@ -737,7 +739,6 @@ window_misc.toggle("notify entities", false, function(val)
 
                 if v:IsDescendantOf(workspace) then
                     local name = v.Name:gsub("Moving", ""):lower()
-                    local capitalized_name = string.upper(string.sub(name, 1, 1)) .. string.sub(name, 2)
                     message(capitalized_name .. " is coming, go hide!")
                 end
             end
