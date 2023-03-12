@@ -5,6 +5,19 @@ local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoi
 
 -- https://create.roblox.com/marketplace/fonts?creatorName=&includeOnlyVerifiedCreators=false&keyword
 
+function rainbowColor()
+    local frequency = 0.1 -- Adjust this value to change the speed of the color change
+    local amplitude = 127 -- Adjust this value to change the brightness of the colors
+    local center = 128 -- Adjust this value to change the starting color
+    
+    local time = tick()
+    local r = math.sin(frequency*time + 0) * amplitude + center
+    local g = math.sin(frequency*time + 2*math.pi/3) * amplitude + center
+    local b = math.sin(frequency*time + 4*math.pi/3) * amplitude + center
+    
+    return Color3.fromRGB(r, g, b)
+end
+
 if not fireproximityprompt then
     local msg = Instance.new("Message", workspace)
     msg.Text = "you have fireproximityprompt function bro get better executor"
@@ -222,8 +235,8 @@ window_esp.toggle("door esp", false, function(val)
             local door = room:WaitForChild("Door"):WaitForChild("Door")
 
             task.wait(0.1)
-            local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
-            -- local h = esp(part, rainbowColor, door, "Door")
+            -- local h = esp(door, Color3.fromRGB(255, 240, 0), door, "Door")
+            local h = esp(part, rainbowColor, door, "Door")
             table.insert(esptable.doors, h)
 
             door:WaitForChild("Open").Played:Connect(function()
