@@ -978,6 +978,20 @@ window_misc.toggle("loot aura", false, function(val)
                                 until prompt:GetAttribute("Interactions") or not flags.draweraura
                             end)
                         end
+                    elseif v.Name:sub(1, 8) == "KeyObtain" then
+                        local prompt = v:WaitForChild("ActivateEventPrompt")
+                        local interactions = prompt:GetAttribute("Interactions")
+
+                        if not interactions then
+                            task.spawn(function()
+                                repeat
+                                    task.wait(0.1)
+                                    if plr:DistanceFromCharacter(v.PrimaryPart.Position) <= 12 then
+                                        fireproximityprompt(prompt)
+                                    end
+                                until prompt:GetAttribute("Interactions") or not flags.draweraura
+                            end)
+                        end
                     elseif v.Name:sub(1, 8) == "ChestBox" then
                         local prompt = v:WaitForChild("ActivateEventPrompt")
                         local interactions = prompt:GetAttribute("Interactions")
